@@ -1,4 +1,4 @@
-Ne pas oublier d'installer upath
+Ne pas oublier d'installer upath avec la commande npm i upath
 
 https://www.npmjs.com/package/upath
 
