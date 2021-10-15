@@ -38,6 +38,11 @@ code {
   padding:1rem;
 }
 
+.picker {
+  margin-bottom: 1em
+}
+
+
 .movie-info h3{
   margin:0;
 }
