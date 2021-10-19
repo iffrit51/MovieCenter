@@ -6,6 +6,7 @@ const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popula
 
 const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=a738af5d7f7482f20997e6be8d8df8f9&language=fr-FR&query=";
 var flattened = [];
+let flattenedTest = [];
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -16,19 +17,29 @@ function App() {
 
     var textreplaced = "";
 
-    for (let i = 0; i < files.length - 5; i++) {
+    for (let i = 0; i < files.length; i++) {
       if (files[i].name.split('.').pop() === "mp4" || files[i].name.split('.').pop() === "avi" || files[i].name.split('.').pop() === "mkv") {
-        textreplaced = files[i].name.replace("_", " ");
-        textreplaced = textreplaced.replace("480", "");
-        textreplaced = textreplaced.replace("720", "");
-        textreplaced = textreplaced.replace("1080", "");
-        textreplaced = textreplaced.replace("cestpasbien", "").split('.').shift();
-        flattened.push(textreplaced);
+        textreplaced = files[i].name.replace("_", " ").toLowerCase();
+        textreplaced = textreplaced.split('.').shift();
+        
         console.log(SEARCH_API + textreplaced);
         fetch(SEARCH_API + textreplaced).then(res => res.json())
-          .then(data => {
-            setMovies(data.results);
-          });
+          .then((data) => {
+            if(data.results.length !== 0)
+            {
+            flattened.push(data.results.slice(1,2));
+              if(flattenedTest.length<=1)
+              {
+                flattenedTest.push(flattened)
+                console.log(flattenedTest);
+                setMovies(flattenedTest);
+              }
+            }
+          },
+          (error) => {
+
+          }
+          );
       }
     }
   };
