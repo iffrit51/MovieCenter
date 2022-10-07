@@ -13,6 +13,11 @@
   }
 }
 
+.movie-app > .row {
+	overflow-x: auto;
+	flex-wrap: nowrap;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
