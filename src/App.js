@@ -3,8 +3,6 @@ import Movie from './composants/Movie';
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
-const FEATURED_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=a738af5d7f7482f20997e6be8d8df8f9&page=1";
-
 const SEARCH_API = "https://api.themoviedb.org/3/search/movie?api_key=a738af5d7f7482f20997e6be8d8df8f9&language=fr-FR&query=";
 //const PATH_VIDEO = "";
 
